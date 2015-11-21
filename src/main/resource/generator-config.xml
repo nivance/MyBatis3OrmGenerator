@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC
+ "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+ "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<context id="LogGenconfig" targetRuntime="MyBatis3"
+		defaultModelType="hierarchical">
+		<plugin type="com.github.nivance.plugin.ModelProviderPlugin" />
+		<plugin type="com.github.nivance.plugin.ModelExampleClassPlugin" />
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+		<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" />
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/play" userId="root"
+			password="mysql" />
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<javaModelGenerator targetPackage="com.github.nivance.test.entity" targetProject="src/test/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="false" />
+		</javaModelGenerator>
+		<javaClientGenerator type="ANNOTATEDMAPPER"
+			targetPackage="com.github.nivance.test.mapper" targetProject="src/test/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		
+		<table tableName="person" domainObjectName="Person" />
+		
+	</context>
+</generatorConfiguration>
