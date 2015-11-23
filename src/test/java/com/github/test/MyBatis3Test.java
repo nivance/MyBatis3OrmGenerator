@@ -1,4 +1,5 @@
 package com.github.test;
+import java.util.List;
 import java.util.Random;
 
 import org.junit.Assert;
@@ -62,6 +63,15 @@ public class MyBatis3Test {
         int updates = personMapper.updateByExampleSelective(record, example );
         // updates = personMapper.updateByPrimaryKeySelective(record);
         Assert.assertEquals(updates, 1);
+    }
+    
+    @Test
+    public void testSelectByExampleWithBLOBs() {
+        PersonExample example = new PersonExample();
+        example.setOffset(1);
+        example.setLimit(2);
+        List<PersonWithBLOBs> results = personMapper.selectByExampleWithBLOBs(example);
+        Assert.assertEquals(results.size(), 1);
     }
 
 }
