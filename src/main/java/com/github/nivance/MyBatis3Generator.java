@@ -27,13 +27,17 @@ import freemarker.template.Template;
 
 public class MyBatis3Generator {
     private final static Logger logger = LogManager.getLogger(MyBatis3Generator.class);
-    public static String basePackage = "com.baidu";
+    public static String basePackage = "com.everobo.robot.dao";
+//    public static String basePackage = "com.everobo.recommand.dao";
     public static String sourcePath = "src/main/resource";
     public static String targetPath = "src/gens/java";
 
     public static void main(String[] args) throws Exception {
         logger.debug("--------------------start to generate MyBatis3 files--------------------");
-        String xmlName = "generator-config.xml";
+//        String xmlName = "generator-config.xml";
+        String xmlName = "generator-robot.xml";
+//        String xmlName = "generator-book.xml";
+//        String xmlName = "generator-recommand.xml";
         generateMyBatis(xmlName, sourcePath, basePackage);
         logger.debug("--------------------end generate MyBatis3 files--------------------");
     }
